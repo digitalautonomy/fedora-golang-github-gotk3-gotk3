@@ -1,0 +1,16 @@
+build:
+  stage: build
+  image: rbonifaz/wahay-rpm-build:latest
+  #before_script:
+  script:
+    - wget https://github.com/gotk3/gotk3/archive/v0.4.0.zip
+    - unzip v0.4.0.zip
+    - tar zcf gotk3-0.4.0.tar.gz gotk3-0.4.0/
+    - mkdir f30 f31
+    - fedpkg --release f30 local
+    - find . -name *rpm -exec mv {} f30 \;
+    - fedpkg --release f31 local
+    - find . -name *rpm -exec mv {} f31 \;
+  artifacts:
+    paths:
+      - 'f31/*.rpm'
