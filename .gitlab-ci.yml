@@ -1,7 +1,8 @@
 build:
   stage: build
   image: rbonifaz/wahay-rpm-build:latest
-  #before_script:
+  before_script:
+    - dnf install -y xorg-x11-server-Xvfb
   script:
     - git clone https://github.com/gotk3/gotk3.git
     - cd gotk3/
@@ -16,4 +17,5 @@ build:
     - find . -name *rpm -exec mv {} f31 \;
   artifacts:
     paths:
+      - 'f30/*.rpm'
       - 'f31/*.rpm'
