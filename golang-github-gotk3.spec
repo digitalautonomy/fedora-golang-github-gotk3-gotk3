@@ -34,6 +34,8 @@ Source0:        %{gosource}
 
 %if %{with check}
 %check
+Xvfb :99 &
+export DISPLAY=:99
 %gocheck
 %endif
 
