@@ -3,8 +3,11 @@ build:
   image: rbonifaz/wahay-rpm-build:latest
   #before_script:
   script:
-    - wget https://github.com/gotk3/gotk3/archive/v0.4.0.zip
-    - unzip v0.4.0.zip
+    - git clone https://github.com/gotk3/gotk3.git
+    - cd gotk3/
+    - git checkout tags/v0.4.0
+    - cd ..
+    - mv gotk3 gotk3-0.4.0/
     - tar zcf gotk3-0.4.0.tar.gz gotk3-0.4.0/
     - mkdir f30 f31
     - fedpkg --release f30 local
