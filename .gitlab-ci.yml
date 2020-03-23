@@ -12,9 +12,9 @@ build:
     - tar zcf gotk3-0.4.0.tar.gz gotk3-0.4.0/
     - mkdir f30 f31
     - fedpkg --release f30 local
-    - find . -name *rpm -exec mv {} f30 \;
+    - find . -name "*fc30*.rpm" -exec mv {} f30 \;
     - fedpkg --release f31 local
-    - find . -name *rpm -exec mv {} f31 \;
+    - find . -name "*fc31*.rpm" -exec mv {} f31 \;
   artifacts:
     paths:
       - 'f30/*.rpm'
