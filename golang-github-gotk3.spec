@@ -3,7 +3,7 @@
 
 # https://github.com/gotk3/gotk3
 %global goipath         github.com/gotk3/gotk3
-Version:                0.4.0
+Version:                0.6.2
 
 %gometa
 
@@ -14,7 +14,7 @@ Go bindings for GTK3.}
 %global godocs          CONTRIBUTIONS.md README.md
 
 Name:           %{goname}
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Go bindings for GTK3
 
 License:        ISC
@@ -42,6 +42,8 @@ export DISPLAY=:99
 %gopkgfiles
 
 %changelog
+* Sat Apr 29 13:00:00 -05 2023 CAD <fedora@autonomia.digital> 0.0.1-1
+- Update to new version
+
 * Mon Mar 16 11:46:50 -05 2020 rafael <rafael@autonomia.digital> - 0.4.0-1
 - Initial package
-

@@ -10,21 +10,9 @@ build:
     - chmod 644 ~/.ssh/known_hosts
 
   script:
-    - git clone https://github.com/gotk3/gotk3.git
-    - cd gotk3/
-    - git checkout tags/v0.4.0
+    - git clone https://github.com/gotk3/gotk3.git gotk3-0.6.2
+    - cd gotk3-0.6.2/
+    - git checkout tags/v0.6.2
     - cd ..
-    - mv gotk3 gotk3-0.4.0/
-    - tar zcf gotk3-0.4.0.tar.gz gotk3-0.4.0/
-    - mkdir f30 f31
-    - fedpkg --release f30 local
-    - 'find . -name "*fc30*.rpm" -exec mv {} f30 \;'
-    - fedpkg --release f31 local
-    - 'find . -name "*fc31*.rpm" -exec mv {} f31 \;'
-    - 'scp -r -P4243 f30/* fedora-repo@fedora.autonomia.digital:packages/upload/f30'
-    - 'scp -r -P4243 f31/* fedora-repo@fedora.autonomia.digital:packages/upload/f31'
-
-  artifacts:
-    paths:
-      - 'f30/*.rpm'
-      - 'f31/*.rpm'
+    - tar zcf gotk3-0.6.2.tar.gz gotk3-0.6.2/
+    - ./build_all.sh f30 f31 f32 f33 f34 f35 f36 f37 f38
